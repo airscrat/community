@@ -1,2 +1,0 @@
-u grafana-agent - "grafana-agent user" /var/lib/grafana-agent
-m grafana-agent systemd-journal

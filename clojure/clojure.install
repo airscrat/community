@@ -1,3 +1,0 @@
-post_install() {
-  echo 'Re-login or source /etc/profile.d/clojure.sh'
-}
