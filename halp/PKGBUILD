@@ -1,0 +1,46 @@
+# Maintainer: Orhun Parmaksız <orhun@archlinux.org>
+
+pkgname=halp
+pkgver=0.1.5
+pkgrel=1
+pkgdesc="A CLI tool to get help with CLI tools"
+arch=('loong64' 'x86_64')
+url="https://github.com/orhun/halp"
+license=('MIT' 'Apache')
+depends=('gcc-libs')
+makedepends=('cargo')
+source=("$pkgname-$pkgver.tar.gz::$url/archive/v$pkgver.tar.gz")
+sha512sums=('72ffdd0acebff5adfc84da8940e85263458bf1a2fba4252280d2f38130db448be786633492d0778f01882f092097cd5cfdb5e833c369f5f9a7c3b8a3742b7431')
+options=('!lto')
+
+prepare() {
+  cd "$pkgname-$pkgver"
+  cargo fetch --locked --target "$CARCH-unknown-linux-gnu"
+  mkdir completions/
+  mkdir man/
+}
+
+build() {
+  cd "$pkgname-$pkgver"
+  cargo build --release --frozen
+  OUT_DIR=completions/ "./target/release/$pkgname-completions"
+  OUT_DIR=man/ "./target/release/$pkgname-mangen"
+}
+
+check() {
+  cd "$pkgname-$pkgver"
+  OUT_DIR=target cargo test --frozen
+}
+
+package() {
+  cd "$pkgname-$pkgver"
+  install -Dm 755 "target/release/$pkgname" -t "$pkgdir/usr/bin"
+  install -Dm 644 README.md -t "$pkgdir/usr/share/doc/$pkgname"
+  install -Dm 644 LICENSE-MIT -t "$pkgdir/usr/share/licenses/$pkgname"
+  install -Dm 644 "completions/$pkgname.bash" "$pkgdir/usr/share/bash-completion/completions/$pkgname"
+  install -Dm 644 "completions/$pkgname.fish" -t "$pkgdir/usr/share/fish/vendor_completions.d"
+  install -Dm 644 "completions/_$pkgname" -t "$pkgdir/usr/share/zsh/site-functions"
+  install -Dm 644 "man/$pkgname.1" -t "$pkgdir/usr/share/man/man1"
+}
+
+# vim: ts=2 sw=2 et:

@@ -2,13 +2,14 @@
 
 _name=pdm
 pkgname=python-pdm
-pkgver=2.4.7
+pkgver=2.4.9
 pkgrel=1
 pkgdesc="A modern Python package manager with PEP 582 support"
 arch=(any)
 url="https://github.com/pdm-project/pdm"
 license=(MIT)
 depends=(
+  python
   python-blinker
   python-cachecontrol
   python-certifi
@@ -36,8 +37,8 @@ optdepends=(
   'python-pytest-mock: for pytest plugin'
 )
 source=(https://files.pythonhosted.org/packages/source/${_name::1}/$_name/$_name-$pkgver.tar.gz)
-sha512sums=('c63d01c56646e1d628013c59aea3931c4d23514d3b39cc64a23767675f79fb21824429dd295b78c94378e55b7ff9dae05f65240a8e19733aeabc0da50507b280')
-b2sums=('0204736d2752f6f96fc8e590a534528407d7d6eb5cb33084d82b58ee0b59146f52b3f728756ba63279bf5d04468d601f56e28c95f8854a4604298f16721ceee6')
+sha512sums=('1a8952c99e408c7a37d3f3f1e3655cfbe8674e323a21501cdfe7740580ddb8b854b69c9bec46d091027fe16a310929f58e43c26d28e10a5d0f3a81c356edd1fe')
+b2sums=('f9b481562d257f54f67d768cb40d6371f97a38880cc4f30e2a8615bdc75baf050301df97ed95c66c2553919d36cac5111b7d8c0efad362e97925fc8064a876fb')
 
 build() {
   cd $_name-$pkgver

@@ -4,9 +4,10 @@
 # Contributor: Sam May <sam.m4y@gmail.com>
 # Contributor: Pierre-Yves Ritschard <pyr@spootnik.org>
 # Contributor: Vladimir Tsanev <tsachev@gmail.com>
+# Contributor: David Harrigan <dharrigan@gmail.com>
 
 pkgname=clojure
-pkgver=1.11.1.1224
+pkgver=1.11.1.1267
 pkgrel=1
 pkgdesc='Lisp dialect for the JVM'
 url='https://clojure.org/'
@@ -18,7 +19,7 @@ optdepends=('leiningen: automate clojure projects'
             'rlwrap: friendly shell with readline support')
 install=clojure.install
 source=("https://download.clojure.org/install/clojure-tools-$pkgver.tar.gz")
-b2sums=('15a087d42d5f96a803b80c335c515f5e3050712d9c8f0bd761e49b29ce705dd0bb3aaa373a29dba55e78a98e10542c0780912f60011461249fd8922ed4eefdae')
+b2sums=('11c675106a4b31a1e743d0bf472ee8db452d0018692c737508afdeec94acd2169733b1b88d342f32469876cbf72a4b438c54064bd31946e5735915553f2f9bb6')
 
 prepare() {
   cd clojure-tools

@@ -1,18 +1,21 @@
 # Maintainer: David Runge <dvzrv@archlinux.org>
 
 pkgname=wails
-pkgver=2.3.1
+pkgver=2.4.1
 pkgrel=1
 pkgdesc="Create desktop apps using Go and Web Technologies"
 arch=(loong64 x86_64)
 url="https://github.com/wailsapp/wails"
 license=(MIT)
 depends=(glibc)
-makedepends=(go webkit2gtk gtk3)
-options=(debug)
-source=($pkgname-$pkgver.tar.gz::https://github.com/wailsapp/$pkgname/archive/refs/tags/v$pkgver.tar.gz)
-sha512sums=('fdb555546d8de4653919a0132515ca60702f306ae5139be3a610ca8bd47efd28eebda0ac095b4cb2be28f4339de1e2a7a32d79263096929db7a0003af5f5e5de')
-b2sums=('494375071e1ca4a61ba3334b9f6d52d07e0c7b1388b9d37dda348898556ea672964f2b0007dbb501d27d59b33189b773de6bac8d8fed4b8f3fd7dd1829e1d39b')
+makedepends=(
+  go
+  webkit2gtk
+  gtk3
+)
+source=($url/archive/v$pkgver/$pkgname-$pkgver.tar.gz)
+sha512sums=('fa4a593b5cdad24b5e0e3b8798a6196d6337e8649d20b40b28680ec58a2ceb580e43ad8fa464b2359c57a4c28bc24260bb0b03fa2c073ac2f5236f865311016f')
+b2sums=('a39a844d5ad97a2d31b30d46262f8261a3f0c03d9d149d8af10040fcf3918a4244ca6105d360ce24e30c172dd3e3483330a8b5ccee236b8888446bec1dfd59e1')
 
 prepare() {
   mkdir -vp $pkgname-$pkgver/build

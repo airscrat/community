@@ -3,7 +3,7 @@
 
 _hkgname=digest
 pkgname=haskell-digest
-pkgver=0.0.1.5
+pkgver=0.0.1.7
 pkgrel=1
 pkgdesc="Various hashes for bytestrings; CRC32 and Adler32 for now"
 url="https://github.com/TeofilC/digest"
@@ -12,7 +12,7 @@ arch=('loong64' 'x86_64')
 depends=('ghc-libs' "zlib")
 makedepends=('ghc')
 source=("https://hackage.haskell.org/packages/archive/${_hkgname}/${pkgver}/${_hkgname}-${pkgver}.tar.gz")
-sha512sums=('167f4dce5d6781d71d7b2fe55813e79b8ded7d44946e2337bc02a22fd9d423e5c576872662cd6266765919879173fb883be312e0fff51818891e730c5d2d35cd')
+sha512sums=('2739d35ce55a9524b7492aca78752fbe5f168167b37327c693fd1b51a88d23cc22767e52bc6220a053100c6c8579f060adb9f337368b606213b397e76b5868d1')
 
 build() {
     cd $_hkgname-$pkgver

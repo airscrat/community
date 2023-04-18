@@ -2,7 +2,7 @@
 
 pkgname=npm-check-updates
 pkgdesc='Find newer versions of dependencies than what your package.json or bower.json allows'
-pkgver=16.7.5
+pkgver=16.9.0
 pkgrel=1
 arch=('any')
 url='https://github.com/tjunnone/npm-check-updates'
@@ -11,7 +11,7 @@ depends=('nodejs-nopt' 'npm' 'semver')
 makedepends=('git')
 source=(https://registry.npmjs.org/$pkgname/-/$pkgname-$pkgver.tgz)
 noextract=($pkgname-$pkgver.tgz)
-sha512sums=('83e53f731034893bd4fecc97d048d75ad575d23a0429094de6ce8308576fa6fe9e5d219b498a4e8ceb627e2ca8a527a474f9e3a2056e203b7136555d244091f3')
+sha512sums=('00e000adee0000fcc1e69e3513cbdb922b31ec5ca974d0b2e2692217898c525ea9b4e51591a306956571d5eaa099aa2b69e027be1c81c88192fb82cded4f971e')
 
 package() {
   npm install -g --prefix "$pkgdir"/usr "$srcdir"/$pkgname-$pkgver.tgz

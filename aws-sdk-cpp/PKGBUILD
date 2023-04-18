@@ -1,7 +1,7 @@
 # Maintainer: Anatol Pomozov
 
 pkgname=aws-sdk-cpp
-pkgver=1.10.32
+pkgver=1.11.37
 pkgrel=1
 pkgdesc='AWS SDK for C++'
 arch=(loong64 x86_64)
@@ -10,7 +10,7 @@ license=(Apache)
 depends=(openssl curl zlib util-linux-libs aws-c-common aws-c-event-stream libpulse aws-crt-cpp)
 makedepends=(cmake ninja)
 source=(aws-sdk-cpp-$pkgver.zip::https://github.com/aws/aws-sdk-cpp/archive/$pkgver.zip)
-sha256sums=('8062bfb14d41ada775d227e9b5da5b55599e6fb187649a29f71ba655b5a3314b')
+sha256sums=('7ca869d329fca18cc3407d664102d559c3aa3f47775df81473b9b1ac0ea4e817')
 
 build() {
   cd aws-sdk-cpp-$pkgver
@@ -18,7 +18,7 @@ build() {
   cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr -DCUSTOM_MEMORY_MANAGEMENT=OFF -DENABLE_TESTING=OFF -DBUILD_DEPS=OFF \
       -DCMAKE_MODULE_PATH=/usr/lib/cmake \
       -S . -B build -G Ninja
-  ninja -C build -j 2 # the build is so heavy that it gets OOM killed even at powerful machines
+  ninja -C build
 }
 
 package() {
